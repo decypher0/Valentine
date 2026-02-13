@@ -16,6 +16,20 @@
     <img src="cat.gif" alt="cat asking question" class="responsive" />
 
     <script>
+      var noButtonTexts = [
+        "Are you sure?",
+        "Please don't do it!",
+        "Think again!",
+        "Really? 🥺",
+        "You'll regret this!",
+        "Give me a chance!",
+        "Pretty please?",
+        "One more time...",
+        "Don't break my heart!",
+        "Last chance!"
+      ];
+      var clickCount = 0;
+
       document
         .getElementById("noButton")
         .addEventListener("click", function () {
@@ -26,6 +40,10 @@
             window.getComputedStyle(yesButton).fontSize
           );
           yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
+          
+          // Change the No button text
+          this.textContent = noButtonTexts[clickCount];
+          clickCount = (clickCount + 1) % noButtonTexts.length;
         });
     </script>
   </body>
